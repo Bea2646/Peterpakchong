@@ -1,0 +1,9 @@
+.git/
+.wrangler/
+_deploy/
+*.ps1
+*.md
+.gitignore
+.assetsignore
+*_files/
+photos-110-images/
