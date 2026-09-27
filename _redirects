@@ -1,4 +1,2 @@
-# Redirect /th and /th/* to homepage /
-/th / 301
-/th/ / 301
-/th/* / 301
+# Redirect subpaths under /th/ (if any old links exist)
+/th/index.html /th 301
