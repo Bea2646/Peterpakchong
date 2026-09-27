@@ -420,11 +420,20 @@
       font-weight: 600;
       cursor: pointer;
       font-family: var(--font);
-      transition: opacity 0.15s;
+      transition: all 0.2s;
+      display: inline-block;
+      text-decoration: none;
+      line-height: normal;
     }
 
     .btn-white:hover {
-      opacity: 0.88;
+      opacity: 0.9;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    #houses, #atmosphere, #nearby, #contact {
+      scroll-margin-top: 80px;
     }
 
     .btn-ghost {
@@ -1590,7 +1599,7 @@
       </svg>
     </button>
     <div class="nav-links">
-      <a href="index.html#houses">บ้านพัก</a>
+      <a href="#houses" onclick="document.getElementById('houses').scrollIntoView({behavior:'smooth'}); return false;">บ้านพัก</a>
       <div class="dropdown">
         <a href="javascript:void(0)" class="dropdown-btn" onclick="toggleDropdown(event)"
           style="cursor: pointer; display: inline-flex; align-items: center; gap: 4px;">คลิปวิดีโอแนะนำ
@@ -1610,8 +1619,8 @@
           <a href="https://www.youtube.com/watch?v=V8f2QmoCbkw" target="_blank" rel="noopener noreferrer">คลิปบ้านปีเตอร์ 6</a>
         </div>
       </div>
-      <a href="index.html#nearby">สถานที่ใกล้เคียง</a>
-      <a href="index.html#contact">ติดต่อ</a>
+      <a href="#nearby" onclick="document.getElementById('nearby').scrollIntoView({behavior:'smooth'}); return false;">สถานที่ใกล้เคียง</a>
+      <a href="#contact" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'}); return false;">ติดต่อ</a>
       <a href="https://www.google.com/travel/search?q=%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%9B%E0%B8%B5%E0%B9%80%E0%B8%95%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%9B%E0%B8%B2%E0%B8%81%E0%B8%8A%E0%B9%88%E0%B8%AD%E0%B8%87&amp;g2lb=4965990%2C72471280%2C72560029%2C72573224%2C72647020%2C72686036%2C72803964%2C72882230%2C73064764%2C121529349&amp;hl=th-TH&amp;gl=th&amp;cs=1&amp;ssta=1&amp;ts=CAEaKwopEicyJTB4MzExZGQ1NTg3MWNkYzlhMzoweDViNzg5OTg0YWZhOWVmZGE&amp;qs=CAEyE0Nnb0kydC1uX2Nxd3ByeGJFQUU4Ag&amp;ap=ugEHcmV2aWV3cw&amp;ictx=111&amp;ved=0CAAQ5JsGahcKEwiQ9_WokoyVAxUAAAAAHQAAAAAQBA"
         target="_blank" rel="noopener noreferrer">รีวิวจากลูกค้า</a>
     </div>
@@ -1626,8 +1635,8 @@
       <p>บ้านพักสไตล์โมเดิร์น บนพื้นที่กว่า 4 ไร่ ท่ามกลางธรรมชาติ ใกล้เขาใหญ่ — ห่างกรุงเทพเพียง 2 ชั่วโมง</p>
     </div>
     <div class="hero-btns">
-      <button class="btn-white"
-        data-scroll-to="houses">ดูบ้านพักทั้งหมด</button>
+      <a href="#houses" class="btn-white"
+        onclick="document.getElementById('houses').scrollIntoView({behavior:'smooth'}); return false;">ดูบ้านพักทั้งหมด</a>
       <a href="tel:0818993906" class="btn-ghost">📞 081-899-3906</a>
     </div>
     <div class="hero-stats">
