@@ -1,0 +1,4 @@
+# Redirect /th and /th/* to homepage /
+/th / 301
+/th/ / 301
+/th/* / 301
