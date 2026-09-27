@@ -1,0 +1,20 @@
+# Build & Deployment output
+_deploy/
+.wrangler/
+
+# Original downloaded reference files
+*_files/
+Take Me Home Park Khaoyai — บ้านปีเตอร์@ปากช่อง.html
+ทองสมบูรณ์คลับ — บ้านปีเตอร์@ปากช่อง.html
+บ้านปีเตอร์ * — บ้านปีเตอร์@ปากช่อง.html
+บ้านหลังใหญ่ — บ้านปีเตอร์@ปากช่อง.html
+วัดป่าเขาภูหลวง* — บ้านปีเตอร์@ปากช่อง.html
+สวนซ่อนศิลป์* — บ้านปีเตอร์@ปากช่อง.html
+อุทยานแห่งชาติเขาใหญ่* — บ้านปีเตอร์@ปากช่อง.html
+อุโมงค์ต้นหางนกยูง* — บ้านปีเตอร์@ปากช่อง.html
+photos-110-images/
+
+# OS / Editor files
+.DS_Store
+Thumbs.db
+*.log

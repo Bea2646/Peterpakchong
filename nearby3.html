@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ทองสมบูรณ์คลับ — บ้านปีเตอร์@ปากช่อง</title>
+  <meta name="description" content="สถานที่ท่องเที่ยวแนะนำบรรยากาศดี ใกล้บ้านปีเตอร์@ปากช่อง เขาใหญ่ ทองสมบูรณ์คลับ แหล่งรวมเครื่องเล่นผจญภัยสไตล์คาวบอย" />
+  <meta property="og:title" content="ทองสมบูรณ์คลับ — บ้านปีเตอร์@ปากช่อง" />
+  <meta property="og:description" content="สถานที่ท่องเที่ยวแนะนำบรรยากาศดี ใกล้บ้านปีเตอร์@ปากช่อง เขาใหญ่ ทองสมบูรณ์คลับ แหล่งรวมเครื่องเล่นผจญภัยสไตล์คาวบอย" />
+  <meta property="og:image" content="image/Thong.jpg" />
+  <meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --green-dark:  #0F4A30;
+    --green-main:  #1D6B4A;
+    --green-light: #E1F5EE;
+    --green-mid:   #9FE1CB;
+    --text-primary:#1a1a1a;
+    --text-muted:  #666;
+    --bg-page:     #f9f9f7;
+    --bg-white:    #ffffff;
+    --border:      rgba(0,0,0,0.08);
+    --radius-card: 14px;
+    --radius-btn:  8px;
+    --font:        'Sarabun', sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font); background: var(--bg-page); color: var(--text-primary); font-size: 16px; line-height: 1.7; }
+  img { max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+
+  /* NAVBAR */
+  .navbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 40px;
+    background: var(--bg-white);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-back {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 15px; font-weight: 500; color: var(--green-dark);
+    cursor: pointer; transition: opacity 0.15s;
+  }
+  .nav-back:hover { opacity: 0.75; }
+  .nav-logo { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 600; color: var(--green-dark); }
+  .nav-logo .logo-mark { width: 36px; height: 36px; border-radius: 9px; overflow: hidden; }
+  .nav-logo .logo-mark img { width: 100%; height: 100%; object-fit: contain; }
+
+  /* HERO / COVER */
+  .house-hero {
+    background: url(image/Thong.jpg) center center / cover no-repeat;
+    background-color: #e0e0e0;
+    height: 360px; position: relative;
+  }
+  .house-hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.5) 100%);
+  }
+  .house-hero-content {
+    position: relative; z-index: 1; height: 100%;
+    display: flex; flex-direction: column; align-items: flex-start;
+    justify-content: flex-end; padding: 36px 48px; color: #fff;
+  }
+  .house-hero-badge {
+    background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 20px; padding: 4px 14px; font-size: 12px; margin-bottom: 10px; font-weight: 500;
+  }
+  .house-hero-title { font-size: 36px; font-weight: 700; line-height: 1.2; margin-bottom: 8px; }
+  .house-hero-sub { font-size: 15px; opacity: 0.85; }
+
+  /* CONTENT */
+  .content-wrap { max-width: 1060px; margin: 0 auto; padding: 0 32px 64px; }
+
+  /* INFO BLOCK */
+  .info-block { display: grid; grid-template-columns: 1fr 380px; gap: 36px; padding: 40px 0 36px; border-bottom: 1px solid var(--border); }
+  .house-detail-title { font-size: 22px; font-weight: 700; color: var(--green-dark); margin-bottom: 12px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+  .tag { background: var(--green-light); color: var(--green-dark); border-radius: 20px; padding: 5px 14px; font-size: 13px; font-weight: 500; }
+  .house-desc { font-size: 15px; color: var(--text-primary); line-height: 1.85; margin-bottom: 22px; }
+
+  /* Sidebar: Map */
+  .price-card {
+    background: var(--bg-white); border: 1px solid var(--border);
+    border-radius: var(--radius-card); padding: 24px; position: sticky; top: 80px;
+  }
+  .price-card-title { font-size: 13px; font-weight: 700; color: var(--green-main); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
+  .map-wrapper {
+    width: 100%; height: 250px; border-radius: 8px; overflow: hidden; margin-bottom: 16px;
+  }
+  .map-wrapper iframe {
+    width: 100%; height: 100%; border: none;
+  }
+  .price-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+  .price-row:last-of-type { border-bottom: none; margin-bottom: 16px; }
+
+  /* GALLERY */
+  .gallery-section { padding-top: 40px; }
+  .gallery-label { font-size: 13px; font-weight: 700; color: var(--green-main); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
+  .photo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+  .photo-grid img {
+    width: 100%; aspect-ratio: 4/3; object-fit: cover;
+    cursor: pointer; transition: opacity 0.15s; border-radius: 4px;
+    background: #e0e0e0;
+  }
+  .photo-grid img:hover { opacity: 0.82; }
+
+  /* LIGHTBOX */
+  .lightbox {
+    display: none; position: fixed; inset: 0; z-index: 900;
+    background: rgba(0,0,0,0.93); align-items: center; justify-content: center;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: 90vw; max-height: 88vh; object-fit: contain; border-radius: 6px; }
+  .lb-close { position: absolute; top: 16px; right: 20px; color: #fff; font-size: 34px; cursor: pointer; background: none; border: none; line-height: 1; }
+  .lb-nav {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(255,255,255,0.14); border: none; color: #fff;
+    font-size: 30px; width: 52px; height: 52px; border-radius: 50%;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: background 0.15s;
+  }
+  .lb-nav:hover { background: rgba(255,255,255,0.28); }
+  .lb-nav.prev { left: 16px; }
+  .lb-nav.next { right: 16px; }
+  .lb-counter { position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,0.65); font-size: 13px; font-family: var(--font); }
+
+  /* FOOTER */
+  footer {
+    background: var(--green-dark); color: rgba(255,255,255,0.75);
+    padding: 28px 40px; display: flex; justify-content: space-between;
+    align-items: center; font-size: 14px; gap: 16px; flex-wrap: wrap;
+  }
+  footer a { color: rgba(255,255,255,0.7); transition: color 0.15s; }
+  footer a:hover { color: #fff; }
+
+  /* RESPONSIVE */
+  @media (max-width: 800px) {
+    .navbar { padding: 12px 20px; }
+    .house-hero { height: 240px; }
+    .house-hero-content { padding: 24px 20px; }
+    .house-hero-title { font-size: 24px; }
+    .content-wrap { padding: 0 18px 48px; }
+    .info-block { grid-template-columns: 1fr; }
+    .photo-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* Back to Top */
+  .back-to-top {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--green-main);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s, transform 0.3s, background 0.15s;
+    z-index: 90;
+    pointer-events: none;
+  }
+  .back-to-top.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .back-to-top:hover {
+    background: var(--green-dark);
+  }
+</style>
+  <link rel="icon" type="image/png" href="image/Logo.png">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="index.html" class="nav-back" style="display: inline-flex; align-items: center; gap: 6px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg> กลับหน้าหลัก</a>
+  <div class="nav-logo">
+    <div class="logo-mark"><img src="image/Logo.png" alt="โลโก้" /></div>
+    บ้านปีเตอร์@ปากช่อง
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="house-hero">
+  <div class="house-hero-content">
+    <div class="house-hero-badge">⛳ สถานที่ท่องเที่ยวใกล้เคียง</div>
+    <div class="house-hero-title">ทองสมบูรณ์คลับ</div>
+    <div class="house-hero-sub">แหล่งรวมเครื่องเล่นผจญภัยสไตล์คาวบอย ท่ามกลางหุบเขา</div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content-wrap">
+
+  <!-- INFO + PRICE -->
+  <div class="info-block">
+    <div class="info-left">
+      <div class="house-detail-title">ทองสมบูรณ์คลับ — รายละเอียด</div>
+      <div style="font-size: 16px; font-weight: 600; color: #f59e0b; margin-bottom: 8px;">⭐ 4.0 on google map</div>
+      <div class="tags">
+        <span class="tag">🎢 Adventure Park</span>
+        <a href="https://www.thongsomboon-club.com/" target="_blank" rel="noopener noreferrer" class="tag">🌐 เปิดเว็บไซต์</a>
+        <a href="https://maps.google.com/maps?q=Thong%20Somboon%20Club" target="_blank" rel="noopener noreferrer" class="tag">📍 เส้นทาง</a>
+        <a href="tel:0933266685" class="tag">📞 093 326 6685</a>
+      </div>
+      <div class="house-desc" style="margin-bottom: 24px;">
+        สถานที่ท่องเที่ยวและพักผ่อนสไตล์คาวบอย บนพื้นที่กว่า 300 ไร่<br>
+        สนุกกับกิจกรรมผจญภัยมากมาย เช่น ขี่ม้า, ขับรถ ATV, โกคาร์ท, ลูจ<br>
+        มีสิ่งอำนวยความสะดวกครบครัน และจุดถ่ายรูปสไตล์ตะวันตก<br>
+        เหมาะสำหรับการพักผ่อนแบบครอบครัวหรือกลุ่มเพื่อน
+      </div>
+      
+      <div style="font-size: 18px; font-weight: 700; color: var(--green-dark); margin-bottom: 12px;">เหมาะสำหรับ</div>
+      <ul style="padding-left: 20px; line-height: 1.8; color: var(--text-primary); font-size: 15px;">
+        <li>ครอบครัวที่มีเด็ก</li>
+        <li>กลุ่มเพื่อนสายลุย</li>
+        <li>ผู้ที่ชื่นชอบกิจกรรมตื่นเต้น</li>
+      </ul>
+    </div>
+
+    <div class="info-right">
+      <div class="price-card">
+        <div class="price-card-title">📍 แผนที่และการเดินทาง</div>
+        <div class="map-wrapper" style="margin-bottom: 0;">
+          <iframe src="https://maps.google.com/maps?q=Thong%20Somboon%20Club&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GALLERY -->
+  <div class="gallery-section">
+    <div class="gallery-label">📸 รูปภาพ</div>
+    <div class="photo-grid" id="photo-grid"></div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2025 บ้านปีเตอร์@ปากช่อง · สงวนลิขสิทธิ์</span>
+  <div style="display:flex;gap:20px;">
+    <a href="index.html">หน้าหลัก</a>
+    <a href="https://www.facebook.com/peterpakchong/" target="_blank" rel="noopener noreferrer">Facebook</a>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox" onclick="if(event.target===this)closeLb()">
+  <button class="lb-close" onclick="closeLb()">✕</button>
+  <button class="lb-nav prev" onclick="lbNav(-1)">&#8249;</button>
+  <img id="lb-img" src="" alt="รูปภาพขยาย" />
+  <button class="lb-nav next" onclick="lbNav(1)">&#8250;</button>
+  <div class="lb-counter"><span id="lb-cur">1</span> / <span id="lb-total">1</span></div>
+</div>
+
+
+
+<!-- Back to Top Button -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="กลับขึ้นบน">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+
+
+<script>
+  window.PAGE_IMAGES = [
+    'image/Nearby/thongsomboon/196QpGfyuBP6rafIvKOnxFTxUB-fdlUdCxxEM0WWYAYFQS7RzU-Paxy36KegE4Oyxc2h1rlg4Nq3eK0PHR5LR73cuRoSeAXkC88TD4TDMoCxMpvx0V8FdWZ5_6kx9hBUVaRNlUc6kTImEuBUtsaMOjt4rJ567an2ip_ol36xGZD01.jpg',
+    'image/Nearby/thongsomboon/TLh1JvWLKaU_K7yHV3m6sPUh69lyjTd2EW7vTJQDEumQEtkAishRLUb1pHxEohWJFJUeg5luEexPkCkp9-vMJkxDOni35aeaP9vKOjRF3eDGjcR3gBmYD6LUr2tS2RiWE9rg5AE4_RkqOS-EER7oabgIywYbzxlC7Z_dWq4mbVftGvypoYOg.jpg',
+    'image/Nearby/thongsomboon/c8xm_sqVfDs7-QkgrpgurNnzQez4r9BIYQHNbSgkikNvawSEun3N7Z1BB2HJQZmvCkWfnlse4vw4ppmgMqV8I1Qktd3XPY5L6Y7_F_-YpjgrsZY0ohHC7ZULOPlc5ju5B0UViWSmvrE4fgiGfjqes8avE-DbpOrZbbTuPoIKP8R04p6XMuDq.jpg',
+    'image/Nearby/thongsomboon/ld_W4HSoBXxCJCxdf3J1_ZhztLZqbTJd4BHqMPvhXzzx2K1fkaSD8csj5uRpVSVCjGuJYHMPImRijCBEf0YHstpNUxSdfNy-rEpBR1NhvKAJhYaVhSva7_0SbjS8agzWm4joEsW1eBsf5yyQ6y6HYkMPNPXWrRMz-zyFtzYEZDwlr_mfnr1f.jpg',
+    'image/Nearby/thongsomboon/qke0ivVxuBGgpP1HtU9W-SsA52jJh77src9mKB9U4hsURUQQEJ95LgLruXzdkHUOTN5B8bdhVEw_8jCKV6eejcrrjKKh9sbMIj3n-7PHU7hlY9WzqpqdUxA0RB0sL7EEpXlWiSRDRiqxaj_19gUiho1jhZi_le5PCC4Ooi2y5TUB4MXvplxh.jpg',
+    'image/Nearby/thongsomboon/upzc-bgppt43DS_XGYtePhnv3abDD0brl4iTPP1IuLqPlQakAx1EyYHygdyeN-mTHuMHCXxE4rb1utTSgLvTguzAuYLJtoIQxdS4TN4wzJyHgYrVb9kQvSm5xiqDwC-D7VMwtRecUhv8cN8vJ9EWQOdQz8Aw9i2z_qXcKYu7irj8rwN-YS1-.jpg'
+  ];
+  window.PAGE_ALT_PREFIX = 'สถานที่ใกล้เคียง';
+  window.PAGE_FALLBACK_IMG = 'https://images.unsplash.com/photo-1505963773177-de3ce7bcafdb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80';
+</script>
+<script src="js/gallery.js" defer></script>
+<script src="js/common.js" defer></script>
+</body>
+</html>

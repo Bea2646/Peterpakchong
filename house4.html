@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>บ้านปีเตอร์ 4 — บ้านปีเตอร์@ปากช่อง</title>
+  <meta name="description" content="บ้านปีเตอร์ 4 ปากช่อง รองรับ 2-3 ท่าน 1 ห้องนอน 1 ห้องน้ำ บรรยากาศส่วนตัว เหมาะสำหรับคู่รัก" />
+  <meta property="og:title" content="บ้านปีเตอร์ 4 — บ้านปีเตอร์@ปากช่อง" />
+  <meta property="og:description" content="บ้านปีเตอร์ 4 ปากช่อง รองรับ 2-3 ท่าน 1 ห้องนอน 1 ห้องน้ำ บรรยากาศส่วนตัว เหมาะสำหรับคู่รัก" />
+  <meta property="og:image" content="image/Cover/4.jpg" />
+  <meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --green-dark:  #0F4A30;
+    --green-main:  #1D6B4A;
+    --green-light: #E1F5EE;
+    --green-mid:   #9FE1CB;
+    --text-primary:#1a1a1a;
+    --text-muted:  #666;
+    --bg-page:     #f9f9f7;
+    --bg-white:    #ffffff;
+    --border:      rgba(0,0,0,0.08);
+    --radius-card: 14px;
+    --radius-btn:  8px;
+    --font:        'Sarabun', sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font); background: var(--bg-page); color: var(--text-primary); font-size: 16px; line-height: 1.7; }
+  img { max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+
+  /* NAVBAR */
+  .navbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 40px;
+    background: var(--bg-white);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-back {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 15px; font-weight: 500; color: var(--green-dark);
+    cursor: pointer; transition: opacity 0.15s;
+  }
+  .nav-back:hover { opacity: 0.75; }
+  .nav-logo { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 600; color: var(--green-dark); }
+  .nav-logo .logo-mark { width: 36px; height: 36px; border-radius: 9px; overflow: hidden; }
+  .nav-logo .logo-mark img { width: 100%; height: 100%; object-fit: contain; }
+  .nav-cta { background: var(--green-main); color: #fff; padding: 8px 20px; border-radius: var(--radius-btn); font-size: 14px; font-weight: 500; transition: background 0.15s; }
+  .nav-cta:hover { background: var(--green-dark); }
+
+  /* HERO / COVER */
+  .house-hero {
+    background: url('image/Cover/4.jpg') center 80% / cover no-repeat;
+    height: 360px; position: relative;
+  }
+  .house-hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.5) 100%);
+  }
+  .house-hero-content {
+    position: relative; z-index: 1; height: 100%;
+    display: flex; flex-direction: column; align-items: flex-start;
+    justify-content: flex-end; padding: 36px 48px; color: #fff;
+  }
+  .house-hero-badge {
+    background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 20px; padding: 4px 14px; font-size: 12px; margin-bottom: 10px; font-weight: 500;
+  }
+  .house-hero-title { font-size: 36px; font-weight: 700; line-height: 1.2; margin-bottom: 8px; }
+  .house-hero-sub { font-size: 15px; opacity: 0.85; }
+
+  /* CONTENT */
+  .content-wrap { max-width: 1060px; margin: 0 auto; padding: 0 32px 64px; }
+
+  /* INFO BLOCK */
+  .info-block { display: grid; grid-template-columns: 1fr 380px; gap: 36px; padding: 40px 0 36px; border-bottom: 1px solid var(--border); }
+  .info-left {}
+  .house-detail-title { font-size: 22px; font-weight: 700; color: var(--green-dark); margin-bottom: 12px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+  .tag { background: var(--green-light); color: var(--green-dark); border-radius: 20px; padding: 5px 14px; font-size: 13px; font-weight: 500; }
+  .house-desc { font-size: 15px; color: var(--text-primary); line-height: 1.85; margin-bottom: 22px; }
+
+  /* Rooms grid */
+  .rooms-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .room-item {
+    background: var(--bg-page); border-radius: 10px;
+    padding: 12px 16px; font-size: 13px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .room-item .ri { font-size: 20px; }
+
+  /* Sidebar: price + book */
+  .info-right {}
+  .price-card {
+    background: var(--bg-white); border: 1px solid var(--border);
+    border-radius: var(--radius-card); padding: 24px; position: sticky; top: 80px;
+  }
+  .price-card-title { font-size: 13px; font-weight: 700; color: var(--green-main); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
+  .price-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+  .price-row:last-of-type { border-bottom: none; margin-bottom: 16px; }
+  .price-val { font-weight: 700; color: var(--green-dark); font-size: 17px; }
+  .book-btn {
+    width: 100%; background: var(--green-main); color: #fff; border: none;
+    padding: 14px; border-radius: var(--radius-btn); font-size: 16px;
+    font-weight: 600; cursor: pointer; font-family: var(--font);
+    transition: background 0.15s; margin-bottom: 10px; display: block; text-align: center;
+  }
+  .book-btn:hover { background: var(--green-dark); }
+  .phone-row { text-align: center; font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+  .phone-row a { color: var(--green-main); font-weight: 600; }
+
+  /* GALLERY */
+  .gallery-section { padding-top: 40px; }
+  .gallery-label { font-size: 13px; font-weight: 700; color: var(--green-main); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
+  .photo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+  .photo-grid img {
+    width: 100%; aspect-ratio: 4/3; object-fit: cover;
+    cursor: pointer; transition: opacity 0.15s; border-radius: 4px;
+  }
+  .photo-grid img:hover { opacity: 0.82; }
+
+  /* LIGHTBOX */
+  .lightbox {
+    display: none; position: fixed; inset: 0; z-index: 900;
+    background: rgba(0,0,0,0.93); align-items: center; justify-content: center;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: 90vw; max-height: 88vh; object-fit: contain; border-radius: 6px; }
+  .lb-close { position: absolute; top: 16px; right: 20px; color: #fff; font-size: 34px; cursor: pointer; background: none; border: none; line-height: 1; }
+  .lb-nav {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(255,255,255,0.14); border: none; color: #fff;
+    font-size: 30px; width: 52px; height: 52px; border-radius: 50%;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: background 0.15s;
+  }
+  .lb-nav:hover { background: rgba(255,255,255,0.28); }
+  .lb-nav.prev { left: 16px; }
+  .lb-nav.next { right: 16px; }
+  .lb-counter { position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,0.65); font-size: 13px; font-family: var(--font); }
+
+  /* FOOTER */
+  footer {
+    background: var(--green-dark); color: rgba(255,255,255,0.75);
+    padding: 28px 40px; display: flex; justify-content: space-between;
+    align-items: center; font-size: 14px; gap: 16px; flex-wrap: wrap;
+  }
+  footer a { color: rgba(255,255,255,0.7); transition: color 0.15s; }
+  footer a:hover { color: #fff; }
+
+  /* RESPONSIVE */
+  @media (max-width: 800px) {
+    .navbar { padding: 12px 20px; }
+    .house-hero { height: 240px; }
+    .house-hero-content { padding: 24px 20px; }
+    .house-hero-title { font-size: 24px; }
+    .content-wrap { padding: 0 18px 48px; }
+    .info-block { grid-template-columns: 1fr; }
+    .photo-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* Back to Top */
+  .back-to-top {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--green-main);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s, transform 0.3s, background 0.15s;
+    z-index: 90;
+    pointer-events: none;
+  }
+  .back-to-top.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .back-to-top:hover {
+    background: var(--green-dark);
+  }
+  /* Mobile Sticky CTA */
+  .mobile-cta-bar { display: none; }
+  @media (max-width: 800px) {
+    body { padding-bottom: 70px; }
+    .mobile-cta-bar {
+      display: flex; position: fixed; bottom: 0; left: 0; right: 0;
+      background: var(--bg-white); box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.1);
+      z-index: 100; padding: 10px 16px; gap: 12px;
+      padding-bottom: max(10px, env(safe-area-inset-bottom));
+    }
+    .m-cta-btn {
+      flex: 1; text-align: center; padding: 12px; border-radius: 8px;
+      font-weight: 600; font-size: 15px; text-decoration: none;
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+    }
+    .m-phone-btn { background: var(--green-light); color: var(--green-dark); }
+    .m-line-btn { background: #00B900; color: white; }
+  }
+</style>
+  <link rel="icon" type="image/png" href="image/Logo.png">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="index.html" class="nav-back" style="display: inline-flex; align-items: center; gap: 6px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg> กลับหน้าหลัก</a>
+  <div class="nav-logo">
+    <div class="logo-mark"><img src="image/Logo.png" alt="โลโก้" /></div>
+    บ้านปีเตอร์@ปากช่อง
+  </div>
+  <a href="https://page.line.me/mtk7269d?openQrModal=true" target="_blank" rel="noopener noreferrer" class="nav-cta">💬 จองผ่าน Line</a>
+</nav>
+
+<!-- HERO -->
+<div class="house-hero">
+  <div class="house-hero-content">
+    <div class="house-hero-badge">🏡 บ้านพักส่วนตัว · ปากช่อง</div>
+    <div class="house-hero-title">บ้านปีเตอร์ 4</div>
+    <div class="house-hero-sub">พักได้ 2-3 ท่าน · บรรยากาศส่วนตัว</div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content-wrap">
+
+  <!-- INFO + PRICE -->
+  <div class="info-block">
+    <div class="info-left">
+      <div class="house-detail-title">บ้านปีเตอร์ 4 — รายละเอียด</div>
+      <div class="tags">
+        <span class="tag">👥 พักได้ 2-3 ท่าน</span>
+        <span class="tag">🛏️ 1 ห้องนอน</span>
+        <span class="tag">🛀 1 ห้องน้ำ</span>
+        <span class="tag">📡 Wi-Fi ฟรี</span>
+        <span class="tag">❄️ แอร์ทุกห้อง</span>
+      </div>
+      <p class="house-desc">
+        เหมาะสำหรับคู่รัก หรือกลุ่มเล็กที่ต้องการบรรยากาศที่เงียบสงบและเป็นส่วนตัว 
+        มาพร้อมห้องนอน 1 ห้อง ห้องน้ำ 1 ห้อง และสิ่งอำนวยความสะดวกครบครัน
+      </p>
+
+      <div class="rooms-grid">
+        <div class="room-item"><span class="ri">🛏️</span> ห้องนอน 1 ห้อง</div>
+        <div class="room-item"><span class="ri">🛀</span> ห้องน้ำ 1 ห้อง</div>
+        <div class="room-item"><span class="ri">🅿️</span> ที่จอดรถ</div>
+      </div>
+    </div>
+
+    <div class="info-right">
+      <div class="price-card">
+        <div class="price-card-title">💰 ราคาพัก</div>
+        <div class="price-row">
+          <span>วันธรรมดา (จันทร์–พฤหัส)</span>
+          <span class="price-val">1,500 ฿</span>
+        </div>
+        <div class="price-row">
+          <span>วันศุกร์ / วันเสาร์ / วันหยุดนักขัตฤกษ์</span>
+          <span class="price-val">2,000 ฿</span>
+        </div>
+        <a href="https://page.line.me/mtk7269d?openQrModal=true" target="_blank" rel="noopener noreferrer" class="book-btn">
+          💬 สอบถาม / จองผ่าน Line
+        </a>
+        <div class="phone-row" style="margin-bottom: 20px;">หรือโทร <a href="tel:0818993906">081-899-3906</a> / <a href="tel:0816940590">081-694-0590</a></div>
+        <hr class="divider-mini" style="border:none; border-top:1px solid var(--border); margin: 16px 0;" />
+        <div style="font-size:13px; font-weight:700; color:var(--text-muted); margin-bottom:10px; text-transform:uppercase;">🎬 คลิปพาทัวร์บ้าน</div>
+        <a href="https://www.youtube.com/watch?v=_cXVv6trVL4" target="_blank" rel="noopener noreferrer" class="book-btn" style="display:block; text-align:center; background:#990000; margin-bottom:0;">
+          ▶️ คลิปพาทัวร์บ้าน
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- GALLERY -->
+  <div class="gallery-section">
+    <div class="gallery-label">📸 รูปภาพบ้านปีเตอร์ 4</div>
+    <div class="photo-grid" id="photo-grid"></div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2025 บ้านปีเตอร์@ปากช่อง · สงวนลิขสิทธิ์</span>
+  <div style="display:flex;gap:20px;">
+    <a href="index.html">หน้าหลัก</a>
+    <a href="https://www.facebook.com/peterpakchong/" target="_blank" rel="noopener noreferrer">Facebook</a>
+    <a href="https://page.line.me/mtk7269d?openQrModal=true" target="_blank" rel="noopener noreferrer">Line</a>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox" onclick="if(event.target===this)closeLb()">
+  <button class="lb-close" onclick="closeLb()">✕</button>
+  <button class="lb-nav prev" onclick="lbNav(-1)">&#8249;</button>
+  <img id="lb-img" src="" alt="รูปภาพขยาย" />
+  <button class="lb-nav next" onclick="lbNav(1)">&#8250;</button>
+  <div class="lb-counter"><span id="lb-cur">1</span> / <span id="lb-total">1</span></div>
+</div>
+
+
+
+<!-- Back to Top Button -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="กลับขึ้นบน">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+
+
+<!-- Mobile Sticky CTA Bar -->
+<div class="mobile-cta-bar">
+  <a href="tel:0818993906" class="m-cta-btn m-phone-btn">📞 โทรจอง</a>
+  <a href="https://page.line.me/mtk7269d?openQrModal=true" target="_blank" rel="noopener noreferrer" class="m-cta-btn m-line-btn">💬 จองผ่าน Line</a>
+</div>
+
+<script>
+  window.PAGE_IMAGES = [
+    "34/37212721_1828739280535906_7344078477668122624_n.jpg",
+    "34/506358405_9995092780567141_8584216911216421619_n.jpg",
+    "34/506358591_9995092743900478_2839274560771671680_n.jpg",
+    "34/506358749_9995092793900473_3865551993353393860_n.jpg",
+    "34/506359037_9995092577233828_8268502549449388130_n.jpg",
+    "34/506394108_9995092527233833_1571066964949532780_n.jpg",
+    "34/506403600_9995092347233851_6395121589234130073_n.jpg",
+    "34/506404914_9995092683900484_1490665530110791161_n.jpg",
+    "34/506448419_9995092537233832_5186129989788142944_n.jpg",
+    "34/506470958_9995092803900472_9049933732196431841_n.jpg",
+    "34/506682843_9995092787233807_1299185290972594020_n.jpg",
+    "34/506995951_9995092493900503_8820153863852696710_n.jpg",
+    "34/507114231_10021939367882482_2219026199560299957_n.jpg",
+    "34/508291954_10021939427882476_7566715538476430282_n.jpg",
+    "34/508348390_10021939621215790_2075821325780382959_n.jpg",
+    "34/508350522_10021939534549132_1628518246194557396_n.jpg",
+    "34/508389983_10021939347882484_6070482533062964330_n.jpg",
+    "34/508455045_10021939414549144_5421723157973616471_n.jpg",
+    "34/508502614_10021939461215806_397706064290578884_n.jpg",
+    "34/509294472_10021939437882475_6678972859211249091_n.jpg",
+    "34/509360165_10021939757882443_5069637982539017063_n.jpg",
+    "34/509599708_10021939487882470_6343785928959673964_n.jpg",
+    "34/53648560_2177719625637868_2934559279987818496_n.jpg",
+    "34/53769956_2177731558970008_6609025954880684032_n.jpg",
+    "34/53841474_2177719535637877_3976031477094678528_n.jpg",
+    "34/53845663_2177731392303358_6422032862748344320_n.jpg",
+    "34/53865561_2177719572304540_9038670687731974144_n.jpg",
+    "34/53891046_2177731455636685_6790847597150994432_n.jpg",
+    "34/54361770_2177719455637885_5710240392482390016_n.jpg",
+    "34/54367112_2177731498970014_4279731810050506752_n.jpg",
+    "34/54390950_2177719445637886_4882416417187561472_n.jpg",
+    "34/54415248_2177731665636664_4270251683356868608_n.jpg",
+    "34/54434091_2177719658971198_3738719806547820544_n.jpg",
+    "34/54437348_2177731612303336_1540531393853915136_n.jpg",
+    "34/55627829_2177731728969991_1499074621461233664_n.jpg"
+  ];
+  window.PAGE_ALT_PREFIX = 'บ้านปีเตอร์ 4';
+</script>
+<script src="js/gallery.js" defer></script>
+<script src="js/common.js" defer></script>
+</body>
+</html>
